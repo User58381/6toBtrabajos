@@ -406,7 +406,7 @@ button.metric{text-align:left;color:var(--ink);font:inherit;cursor:pointer}
     <section id="works-panel" aria-labelledby="works-title">
       <div class="page-heading">
         <div><h2 id="works-title" tabindex="-1">Trabajos por día</h2></div>
-        <div class="period-wrap"><label for="triSelect">Periodo escolar</label><select id="triSelect"><option value="M1" selected>Trimestre 1</option><option value="M2">Trimestre 2</option><option value="M3">Trimestre 3</option><option value="ALL">Todos los trimestres</option></select></div>
+        <div class="period-wrap"><label for="triSelect">Periodo escolar</label><select id="triSelect"><option value="M1">Trimestre 1</option><option value="M2" selected>Trimestre 2</option><option value="M3">Trimestre 3</option><option value="ALL">Todos los trimestres</option></select></div>
       </div>
       <div class="board" id="work-board">
         <div class="agenda">
@@ -815,7 +815,7 @@ function weekRange(date){
    La clasificación por UID y el corte de publicación se conservan en el núcleo. */
 
 let ALL={faltantes:[],tarde:[],atiempo:[],presets:[]};
-const DEFAULT_TRI='M1';
+const DEFAULT_TRI='M2';
 let TRI=DEFAULT_TRI;
 let CURRENT=null;
 let loadGeneration=0;
