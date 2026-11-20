@@ -4,25 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<title>Aula Digital — Familias</title>
+<title>Aula Digital | Libreta de 6.º B</title>
 <style>
 :root{
   --bg:#f4f6fa;--surface:#fff;--soft:#f7f9fc;--ink:#1b2b45;--muted:#5b6b81;
-  --line:#e1e7f0;--accent:#3855cf;--accent-soft:#edf1ff;--accent-text:#304ab4;
+  --line:#e1e7f0;--accent:#3855cf;--on-accent:#fff;--accent-soft:#edf1ff;--accent-text:#304ab4;
   --navy:#203762;--on-navy:#fff;--good:#126b55;--good-bg:#e9f6ef;
   --pending:#8b510c;--pending-bg:#fff4df;--late:#6553a1;--late-bg:#f0ecfa;
   --error:#b33332;--error-bg:#fff0ef;--shadow:0 6px 26px rgba(31,52,87,.035);
-  --radius:20px;--blue-bg:#edf3ff;--blue:#2554a8;--red-bg:#fff0ec;--red:#9c4437;
-  --green-bg:#ebf5ee;--green:#386b42;--pink-bg:#fcecf5;--pink:#96436e;
+  --radius:20px;--blue:#2554a8;--red:#9c4437;
+  --green:#386b42;--pink:#96436e;
 }
 [data-theme="dark"]{
   --bg:#0e1521;--surface:#162130;--soft:#1b293b;--ink:#edf2fa;--muted:#b0bfd2;
-  --line:#35465e;--accent:#6280f4;--accent-soft:#26365d;--accent-text:#bbc9ff;
+  --line:#35465e;--accent:#6280f4;--on-accent:#0e1521;--accent-soft:#26365d;--accent-text:#bbc9ff;
   --navy:#283e63;--on-navy:#fff;--good:#8ce0b8;--good-bg:#173a30;
   --pending:#ffcf83;--pending-bg:#3b2d1b;--late:#d1bdfd;--late-bg:#312a48;
   --error:#ffb0a9;--error-bg:#462825;--shadow:none;
-  --blue-bg:#203653;--blue:#b5d1ff;--red-bg:#412e2d;--red:#ffc0ac;
-  --green-bg:#243c2b;--green:#b2dfb6;--pink-bg:#432e42;--pink:#f6badf;
+  --blue:#b5d1ff;--red:#ffc0ac;
+  --green:#b2dfb6;--pink:#f6badf;
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -48,13 +48,13 @@ h1,h2,h3,h4,p{margin:0}h1,h2,h3,h4{line-height:1.2}
 .header-tag{font-size:12px;border-left:1px solid var(--line);padding-left:14px;color:var(--muted)}
 .btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 15px;border:1px solid var(--line);border-radius:11px;background:var(--surface);color:var(--ink);font-weight:650;font-size:14px;text-decoration:none;touch-action:manipulation;line-height:1.3}
 .btn:hover{background:var(--soft)}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}.btn.primary:hover{filter:brightness(.94)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}.btn.primary:hover{filter:brightness(.94)}
 .btn.subtle{background:transparent;border-color:transparent;color:var(--muted)}
 .btn.compact{padding:8px 11px}.btn.icon-only{width:44px;min-width:44px;padding:10px}
 .text-button{border:0;background:transparent;color:var(--accent-text);font-size:13px;font-weight:650;min-height:44px;padding:8px 4px;text-decoration:underline;text-underline-offset:3px}
 .page{max-width:1176px;padding:26px 28px 40px;margin:auto}
 .eyebrow{font-size:11px;font-weight:750;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
-.muted{color:var(--muted)}.small{font-size:13px}.section-gap{margin-top:24px}
+.muted{color:var(--muted)}.small{font-size:13px}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
 .login{min-height:calc(100svh - 160px);display:grid;grid-template-columns:1fr 430px;align-items:center;gap:72px;max-width:1020px;margin:auto}
 .login-copy h1{font-size:clamp(36px,4.5vw,54px);font-weight:780;letter-spacing:-2.3px;line-height:1.1;margin:18px 0 20px;max-width:540px}
@@ -90,8 +90,19 @@ h1,h2,h3,h4,p{margin:0}h1,h2,h3,h4{line-height:1.2}
 .page-heading h2{font-size:30px;letter-spacing:-1.1px;margin-bottom:7px}.page-heading p{font-size:14px;color:var(--muted)}
 .period-wrap{display:flex;align-items:center;gap:10px;flex-shrink:0}.period-wrap label{font-size:12px;color:var(--muted)}
 select{min-height:44px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);padding:8px 30px 8px 12px;font-size:13px;font-weight:650;max-width:100%}
-.summary-scope{font-size:11px;color:var(--muted);margin-bottom:8px}
-.summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.summary{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow:hidden;
+  border:1px solid var(--line);border-radius:14px;background:var(--surface);margin-bottom:10px;
+}
+.summary .metric{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;padding:10px 12px;border:0;border-radius:0}
+.summary .metric-top{font-size:.8125rem;overflow-wrap:anywhere}
+.summary .metric-number{font-size:1.5rem;margin-top:4px;overflow-wrap:anywhere}
+.summary .metric-value{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:5px}
+.summary .metric-delivered .metric-number{color:var(--good)}
+.summary .metric-total{font-size:.75rem;color:var(--muted)}
+.summary .progress-track{margin-top:5px;height:4px}
+.summary .metric+.metric{border-inline-start:1px solid var(--line)}
+.summary .metric:focus-visible{outline-offset:-4px}
 .metric{padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-radius:16px;min-width:0}
 button.metric{text-align:left;color:var(--ink);font:inherit;cursor:pointer}
 .metric.attention{background:var(--pending-bg);border-color:transparent}
@@ -100,66 +111,97 @@ button.metric{text-align:left;color:var(--ink);font:inherit;cursor:pointer}
 .metric-number{font-weight:780;font-size:34px;letter-spacing:-1.2px;line-height:1.15;display:inline-block;margin-top:9px}
 .metric.attention .metric-number{color:var(--pending)}
 .metric-sub{font-size:12px;color:var(--muted);display:block;margin-top:5px}
-.metric-small{font-size:14px;color:var(--muted);font-weight:500;letter-spacing:0}
 .progress-track{height:5px;background:var(--line);border-radius:8px;overflow:hidden;margin-top:12px}.progress-fill{height:100%;width:0;background:var(--accent);border-radius:8px}
-.publish-note{display:flex;align-items:flex-start;gap:9px;color:var(--muted);font-size:12px;margin:14px 0 24px;line-height:1.6}.publish-note .icon{width:16px;height:16px;margin-top:2px}
-.board{display:grid;grid-template-columns:minmax(0,1fr) 336px;grid-template-areas:"filters calendar" "agenda calendar";gap:18px 24px;align-items:start}
-.filters{grid-area:filters;min-width:0}.agenda{grid-area:agenda;min-width:0}.calendar-panel{grid-area:calendar;min-width:0}
+.board{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:24px;align-items:start}
+.agenda,.work-filters,.work-results,.work-tools{min-width:0}
+.work-tools{display:grid;gap:10px}
 .status-filters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:5px;gap:4px;border:1px solid var(--line);border-radius:13px;background:var(--surface)}
 .filter-button{min-width:0;flex-wrap:wrap;min-height:44px;border:0;border-radius:9px;background:transparent;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;font-weight:700;padding:8px}
 .filter-button.active{background:var(--navy);color:var(--on-navy)}
 .filter-count{font-size:11px;border-radius:5px;padding:1px 5px;background:var(--soft);color:var(--muted)}
 .filter-button.active .filter-count{background:rgba(255,255,255,.17);color:#fff}
-.search-row{margin-top:12px;display:flex;gap:10px}.search-box{flex:1;position:relative;min-width:0}
+.search-box{position:relative;min-width:0;margin-bottom:10px}
+.search-box:focus-within>.icon{color:var(--accent-text)}
 .search-box>.icon{position:absolute;left:13px;top:15px;color:var(--muted);width:18px;height:18px}
-.search-box input{padding:12px 45px 12px 41px;min-height:48px;font-size:14px}
+.search-box input{padding:12px 45px 12px 41px;min-height:48px;font-size:1rem}
 .search-clear{position:absolute;right:2px;top:2px;border:0;background:transparent;color:var(--muted);width:44px;height:44px;display:grid;place-items:center}
-.date-filters{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:12px}
-.date-chip{min-height:44px;padding:8px 12px;border:1px solid transparent;border-radius:9px;background:transparent;color:var(--muted);font-size:12px;font-weight:650}
-.date-chip.active{color:var(--accent-text);background:var(--accent-soft);border-color:transparent}
-.calendar-toggle{display:none}
-.compact-label,.calendar-close{display:none}
+.date-filters{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin:10px 0 4px}
+.date-chip{min-height:44px;padding:8px 10px;border:1px solid transparent;border-radius:8px;background:var(--soft);color:var(--muted);font-size:.875rem;font-weight:650}
+.date-chip.active{color:var(--accent-text);background:var(--accent-soft)}
+.calendar-panel{min-width:0;max-width:34rem;margin-bottom:12px}
+.calendar-toggle{flex-shrink:0;color:var(--accent-text);max-width:50%;overflow-wrap:anywhere}
+.calendar-toggle .icon{width:16px;height:16px}
+.calendar-toggle.active,.calendar-toggle[aria-expanded="true"]{background:var(--accent-soft);border-color:var(--accent)}
 .calendar-title-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.results-header{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px}
-.results-header h3{font-size:17px;letter-spacing:-.4px}.results-header p{font-size:12px;color:var(--muted);margin-top:6px}
-.results-header .text-button{margin-top:-10px;flex-shrink:0;font-size:12px}
+.results-header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0 10px}
+.results-header>div{min-width:0;overflow-wrap:anywhere}
+.results-header h3{font-size:1.0625rem;letter-spacing:-.35px}
+.results-header p{font-size:.8125rem;color:var(--muted);margin-top:3px}
 .other-pending{display:flex;gap:12px;justify-content:space-between;align-items:center;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-size:12px;margin-bottom:14px}
 .other-pending .text-button{white-space:nowrap;font-size:12px}
-.day-groups{display:grid;gap:12px}
-.day-block{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
-.day-summary{display:flex;align-items:center;gap:14px;padding:17px 18px;cursor:pointer;list-style:none;min-height:88px}
+.day-groups{display:grid;gap:14px}
+.day-block{min-width:0}
+.day-summary{
+  display:grid;grid-template-columns:46px minmax(0,1fr) 18px;align-items:center;gap:13px;
+  padding:13px 15px;cursor:pointer;list-style:none;min-height:80px;
+  border:1px solid var(--line);border-radius:14px;background:var(--surface);
+}
 .day-summary::-webkit-details-marker{display:none}
-.date-tile{width:47px;min-width:47px;border:1px solid var(--line);border-radius:11px;padding:5px 2px;text-align:center;background:var(--soft)}
-.date-tile .day-number{font-weight:750;font-size:21px;line-height:1.1;display:block;letter-spacing:-.6px}
-.date-tile .day-month{font-size:9px;font-weight:750;text-transform:uppercase;letter-spacing:.8px;display:block;margin-top:3px;color:var(--muted)}
-.day-title{flex:1;min-width:0}.date-heading{display:block;font-size:14px;font-weight:750;letter-spacing:-.2px}
-/* Resumen de todos los trabajos publicados de esta fecha, siempre visible. */
-.day-overview{display:flex;flex-wrap:wrap;gap:4px 7px;margin-top:8px;font-size:12px;font-weight:500;line-height:1.5}
-.day-overview>span{display:inline-flex;align-items:center;gap:7px;max-width:100%}
-.day-overview .icon{width:13px;height:13px}
+.day-block[open] .day-summary{background:var(--accent-soft)}
+.date-tile{border:1px solid var(--line);border-radius:10px;padding:6px 2px;text-align:center;background:var(--surface)}
+.date-tile .day-number{font-weight:780;font-size:21px;line-height:1.1;display:block;letter-spacing:-.6px;color:var(--accent-text)}
+.date-tile .day-month{font-size:10px;font-weight:750;text-transform:uppercase;letter-spacing:.7px;display:block;margin-top:3px;color:var(--muted)}
+.day-title{min-width:0;overflow-wrap:anywhere}
+.date-heading{display:block;font-size:1rem;font-weight:750;letter-spacing:-.2px}
+/* El bloque muestra los totales de la fecha aunque se apliquen filtros. */
+.day-overview{display:flex;flex-wrap:wrap;align-items:center;gap:3px 6px;margin-top:5px;font-size:.8125rem;line-height:1.4}
 .day-overview .day-total{color:var(--muted)}
-.day-overview .day-delivered{color:var(--good);font-weight:650}
-.day-overview .day-pending{color:var(--pending);font-weight:650}
-.day-overview .day-separator{color:var(--muted);font-weight:400}
-.day-overview .day-attendance{flex-basis:100%;align-items:flex-start;gap:6px;padding-top:7px;margin-top:3px;border-top:1px solid var(--line);font-size:12px;font-weight:500;color:var(--muted)}
-.day-attendance>.icon{margin-top:2px}
+.day-overview .day-delivered,.day-overview .day-pending{padding:2px 5px;border-radius:5px;font-weight:650}
+.day-overview .day-delivered{color:var(--good);background:var(--good-bg)}
+.day-overview .day-pending{color:var(--pending);background:var(--pending-bg)}
+.day-attendance{display:flex;flex-basis:100%;align-items:baseline;gap:5px;color:var(--muted)}
+.day-attendance>.icon{width:14px;height:14px;align-self:center}
 .day-attendance strong{font-weight:650;color:var(--ink)}
 .day-attendance.present strong{color:var(--good)}
 .day-attendance.unrecorded strong{color:var(--muted)}
-@media(max-width:760px){.day-overview{gap:5px 7px;margin-top:7px}.day-overview .icon{width:14px;height:14px}}
-.day-summary .chevron{width:18px;height:18px;transition:transform .15s;color:var(--muted)}
+.day-summary .chevron{width:18px;height:18px;transition:transform .15s;color:var(--accent-text)}
 .day-block[open] .day-summary .chevron{transform:rotate(180deg)}
-.day-block[open] .day-summary{border-bottom:1px solid var(--line)}
-.work-list{padding:0 18px}.work-item{padding:17px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}.work-item:last-child{border-bottom:0}
-.work-top{display:flex;gap:10px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap}
-.subject{font-size:10px;font-weight:700;letter-spacing:.15px;color:var(--muted);background:var(--soft);padding:4px 7px;border-radius:6px;max-width:100%;line-height:1.5}
-.subject.language{background:var(--blue-bg);color:var(--blue)}.subject.science{background:var(--red-bg);color:var(--red)}.subject.ethics{background:var(--green-bg);color:var(--green)}.subject.community{background:var(--pink-bg);color:var(--pink)}
-.work-status{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:650;white-space:nowrap;color:var(--pending);padding:3px 0;line-height:1.5}
-.work-status .icon{width:13px;height:13px}.work-status.ontime{color:var(--good)}.work-status.late{color:var(--late)}
-.work-title{font-size:15px;font-weight:700;line-height:1.5;margin-top:9px;letter-spacing:-.2px}
-.work-meta{font-size:12px;color:var(--muted);display:flex;gap:5px 13px;flex-wrap:wrap;margin-top:4px}
-.evidence{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.evidence a{font-size:12px;padding:8px 10px;min-height:44px}.evidence .icon{width:15px;height:15px}
-.more-works{width:100%;border:0;border-top:1px solid var(--line);min-height:48px;font-size:12px;font-weight:700;color:var(--accent-text);background:var(--soft)}
+.work-list{display:grid;gap:9px;padding-top:9px}
+.work-item{
+  --subject-ink:var(--accent-text);
+  min-width:0;padding:13px 15px 11px;background:var(--surface);
+  border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);overflow-wrap:anywhere;
+}
+.work-item.language{--subject-ink:var(--blue)}
+.work-item.science{--subject-ink:var(--red)}
+.work-item.ethics{--subject-ink:var(--green)}
+.work-item.community{--subject-ink:var(--pink)}
+.work-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 10px}
+.work-number{
+  display:inline-flex;align-items:baseline;gap:5px;max-width:100%;padding:3px 8px;
+  border-radius:7px;background:var(--accent-soft);color:var(--accent-text);
+  font-size:.875rem;font-weight:750;line-height:1.25;
+}
+.work-number strong{min-width:0;font-size:1.25rem;font-weight:800;font-variant-numeric:tabular-nums}
+.work-title{font-size:1.125rem;font-weight:750;line-height:1.3;letter-spacing:-.2px}
+.work-top+.work-title{margin-top:8px}
+.work-status{
+  display:inline-flex;align-items:center;gap:4px;max-width:100%;padding:3px 7px;border-radius:6px;
+  background:var(--pending-bg);color:var(--pending);font-size:.8125rem;font-weight:650;line-height:1.4;
+}
+.work-status .icon{width:14px;height:14px}
+.work-status.ontime{background:var(--good-bg);color:var(--good)}
+.work-status.late{background:var(--late-bg);color:var(--late)}
+.work-details{display:flex;flex-wrap:wrap;align-items:center;gap:4px 9px;margin-top:5px;font-size:.875rem}
+.subject{display:inline-flex;align-items:baseline;gap:6px;color:var(--muted);font-weight:650}
+.subject::before{content:"";flex:0 0 6px;height:6px;border-radius:50%;background:var(--subject-ink)}
+.work-meta{display:flex;flex-wrap:wrap;align-items:center;gap:3px 9px;color:var(--muted)}
+.work-origin{padding:1px 6px;border-radius:5px;background:var(--soft);font-weight:650}
+.evidence{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
+.evidence a{min-width:0;min-height:44px;padding:7px 11px;color:var(--accent-text);font-size:.875rem}
+.evidence a:hover{background:var(--accent-soft);border-color:var(--accent)}
+.evidence .icon{width:16px;height:16px}
+.more-works{width:100%;margin-top:9px;border:1px solid var(--line);border-radius:11px;min-height:44px;font-size:.875rem;font-weight:700;color:var(--accent-text);background:var(--surface)}
 .pagination{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:17px}.pagination p{font-size:12px;color:var(--muted)}
 .empty-state{padding:32px 24px;text-align:center;border:1px dashed var(--line);border-radius:16px;background:var(--surface)}
 .empty-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:var(--accent-soft);color:var(--accent-text);margin:0 auto 14px}
@@ -183,46 +225,138 @@ button.metric{text-align:left;color:var(--ink);font:inherit;cursor:pointer}
 .calendar-key{display:flex;gap:10px;flex-wrap:wrap;font-size:10px;margin-top:16px;color:var(--muted);padding-top:14px;border-top:1px solid var(--line)}
 .calendar-key span{display:flex;gap:5px;align-items:center}.key-symbol{font-weight:750;border-radius:3px;padding:2px 4px;background:var(--pending-bg);color:var(--pending)}.key-symbol.done{background:var(--good-bg);color:var(--good)}
 .calendar-scope{font-size:10px;color:var(--muted);line-height:1.6;margin-top:12px}
-.help-card{margin-top:16px;border:1px solid var(--line);border-radius:15px;padding:0 17px;background:transparent}
-.help-card summary{min-height:52px;cursor:pointer;font-size:12px;font-weight:700;display:flex;gap:10px;align-items:center;list-style:none}.help-card summary::-webkit-details-marker{display:none}.help-card summary>.icon{width:16px;height:16px;color:var(--muted)}
-.help-card p{font-size:12px;color:var(--muted);line-height:1.75;margin:0 0 15px}.help-card strong{color:var(--ink)}
+.help-card{border:1px solid var(--line);border-radius:13px;padding:0 14px;background:var(--surface)}
+.help-card summary{min-height:48px;cursor:pointer;font-size:.875rem;font-weight:700;display:flex;gap:10px;align-items:center;list-style:none}.help-card summary::-webkit-details-marker{display:none}.help-card summary>.icon{width:16px;height:16px;color:var(--muted)}
+.help-card summary>.chevron{margin-left:auto;color:var(--accent-text)}
+.help-card[open] summary>.chevron{transform:rotate(180deg)}
+.help-card p{font-size:.8125rem;color:var(--muted);line-height:1.75;margin:0 0 15px}.help-card strong{color:var(--ink)}
 .attendance-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
 .attendance-grid .metric-number{color:var(--good)}
 .attendance-history{padding:22px;margin-top:22px;max-width:750px}.attendance-history h3{font-size:17px;letter-spacing:-.4px}.attendance-history>p{font-size:12px;color:var(--muted);margin-top:6px}
 .attendance-row{display:flex;gap:10px;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);font-size:13px}.attendance-row:last-child{border:0}
 .attendance-status{padding:4px 9px;border-radius:7px;font-size:11px;font-weight:650;background:var(--good-bg);color:var(--good);white-space:nowrap}.attendance-status.absent{background:var(--pending-bg);color:var(--pending)}
 .attendance-note{max-width:750px;display:flex;align-items:flex-start;gap:12px;padding:16px 18px;background:var(--accent-soft);color:var(--accent-text);border-radius:12px;margin-top:16px;font-size:12px;line-height:1.7}
-.family-note{display:flex;align-items:flex-start;gap:10px;padding:14px 16px;margin-bottom:22px;border:1px solid var(--line);border-radius:13px;background:var(--soft);color:var(--muted);font-size:13px;line-height:1.65}
+.family-note{display:flex;align-items:flex-start;gap:10px;max-width:750px;padding:14px 16px;margin-bottom:22px;border:1px solid var(--line);border-radius:13px;background:var(--soft);color:var(--muted);font-size:.875rem;line-height:1.55}
 .family-note>.icon{width:18px;height:18px;margin-top:2px;color:var(--accent-text)}
 .family-note strong{display:block;margin-bottom:3px;color:var(--ink);font-weight:700;line-height:1.4}
 .footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:26px;margin-top:28px;border-top:1px solid var(--line);color:var(--muted);font-size:11px}
 .loading .refresh-icon{animation:turn 1s linear infinite}@keyframes turn{to{transform:rotate(360deg)}}
-@media(hover:hover){.day-summary:hover{background:var(--soft)}.calendar-day:not(:disabled):hover{outline:1px solid var(--accent)}button.metric:hover{box-shadow:inset 0 0 0 1px var(--pending)}}
+@media(hover:hover){.day-block:not([open]) .day-summary:hover{background:var(--soft)}.calendar-day:not(:disabled):hover{outline:1px solid var(--accent)}button.metric:hover{box-shadow:inset 0 0 0 1px var(--pending)}}
 @media(max-width:900px){
   .page{padding:20px}.header-inner{padding:14px 20px}.login{gap:35px;grid-template-columns:1fr 390px}.login-copy h1{font-size:40px}
-  .board{grid-template-columns:minmax(0,1fr) 305px;gap:18px}.calendar-card{padding:15px}.metric{padding:16px}.header-tag{display:none}
+  .board{grid-template-columns:minmax(0,1fr) 290px;gap:18px}.calendar-card{padding:15px}.metric{padding:16px}.header-tag{display:none}
 }
 @media(max-width:760px){
-  html{scroll-padding-top:calc(78px + env(safe-area-inset-top,0px))}
-  .page{padding:16px max(16px,env(safe-area-inset-right,0px)) max(30px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+  html{
+    --page-gutter-left:max(16px,env(safe-area-inset-left,0px));
+    --page-gutter-right:max(16px,env(safe-area-inset-right,0px));
+    scroll-padding-top:calc(70px + env(safe-area-inset-top,0px));
+  }
+  .page{padding:16px var(--page-gutter-right) max(30px,env(safe-area-inset-bottom,0px)) var(--page-gutter-left)}
   .header-inner{padding:12px max(16px,env(safe-area-inset-right,0px)) 12px max(16px,env(safe-area-inset-left,0px))}.brand-name{font-size:17px}.brand-description{font-size:11px}.brand-mark{width:37px;height:37px;border-radius:11px}.brand-mark .icon{width:22px;height:22px}
   .login{min-height:auto;display:block;max-width:460px;padding-top:12px}.login-copy h1{font-size:34px;letter-spacing:-1.3px;margin:13px 0}.login-copy>p{font-size:15px;line-height:1.65}.login-benefits{display:none}.login-card{margin-top:22px;padding:22px}.login-card h2{font-size:22px}.login-card .field-label{margin-top:20px}
-  .profile{padding:14px;gap:11px;display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:start}.avatar{width:42px;height:42px;border-radius:13px;font-size:15px}.student-info h1{font-size:17px;line-height:1.35;margin-top:0}.student-line{font-size:11px;gap:6px 8px;overflow-wrap:anywhere}.group-label{font-size:11px}#last-update{flex-basis:100%}
+  .profile{padding:10px 12px;gap:9px;display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:start}.avatar{width:42px;height:42px;border-radius:13px;font-size:15px}.student-info h1{font-size:17px;line-height:1.35;margin-top:0}.student-line{font-size:11px;gap:6px 8px;overflow-wrap:anywhere}.group-label{font-size:11px}#last-update{flex-basis:100%}
   .profile-actions{padding:0;border:0}.profile-actions .btn{font-size:12px;padding:8px 2px;min-height:44px}.profile .eyebrow{display:none}
-  .page-tabs{position:sticky;top:0;z-index:20;background:var(--bg);padding-top:env(safe-area-inset-top,0px);margin:10px 0 16px;gap:14px;box-shadow:0 5px 10px var(--bg)}.nav-refresh{width:44px;min-width:44px;padding:10px;margin-bottom:3px}.nav-refresh>span{display:none}.page-tab{font-size:14px;min-height:54px;padding:12px 2px;gap:6px}.page-tab>.icon{width:18px;height:18px}
+  .page-tabs{
+    position:sticky;top:0;z-index:20;align-items:center;gap:6px;background:var(--surface);
+    margin:10px calc(-1 * var(--page-gutter-right)) 14px calc(-1 * var(--page-gutter-left));
+    padding:calc(4px + env(safe-area-inset-top,0px)) var(--page-gutter-right) 4px var(--page-gutter-left);
+  }
+  .page-tab{font-size:14px;min-width:0;min-height:44px;padding:7px 8px;gap:6px;border-radius:8px;overflow-wrap:anywhere}
+  .page-tab.active{background:var(--accent-soft)}.page-tab.active::after{display:none}
+  .page-tab>.icon{width:17px;height:17px}
+  .nav-refresh{width:44px;min-width:44px;padding:10px;margin-bottom:0}.nav-refresh>span{display:none}
   .page-heading{align-items:center;gap:12px;margin-bottom:12px}.page-heading>div:first-child{min-width:0}.page-heading h2{font-size:23px;letter-spacing:-.7px;margin:0}.page-heading p{font-size:13px;line-height:1.65;margin-top:7px}#works-panel>.page-heading p{display:none}
-  .period-wrap{min-width:0;max-width:53%;flex-shrink:1}.period-wrap label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}.period-wrap select{width:100%;min-width:0;padding:9px 24px 9px 10px;font-size:16px}
-  .summary{gap:8px}.metric{padding:12px 10px;border-radius:13px}.metric-top{font-size:12px;overflow-wrap:anywhere}.metric-top>.icon{display:none}.metric-number{font-size:29px;margin-top:7px}.metric-sub{font-size:12px;line-height:1.5}.summary .metric:first-child .metric-sub,.summary .metric:last-child .metric-sub{display:none}.metric-small{font-size:12px}.summary-scope{font-size:11px;margin-bottom:9px}.progress-track{margin-top:10px}
-  .publish-note{font-size:12px;margin:12px 0 18px}.board{grid-template-columns:minmax(0,1fr);grid-template-areas:"filters" "calendar" "agenda";gap:16px}
-  .calendar-panel{display:none}.calendar-open .calendar-panel{display:block}.calendar-toggle{display:inline-flex;font-size:12px;padding:8px 4px;gap:4px;min-width:0;background:var(--surface)}.calendar-toggle .icon{width:15px;height:15px}.calendar-toggle.active,.calendar-toggle[aria-expanded="true"]{color:var(--accent-text);background:var(--accent-soft);border-color:var(--accent)}
-  .calendar-close{display:inline-flex}.calendar-card{max-width:440px;margin:auto;padding:14px}.calendar-day{min-height:50px;font-size:15px}.calendar-mark{font-size:10px}.weekdays span{font-size:12px}.calendar-caption{font-size:13px}.calendar-key,.calendar-scope{font-size:12px}.calendar-panel .help-card{display:none}.month-select{font-size:16px}
-  .filter-button{font-size:13px;gap:5px;padding:8px 4px;min-height:46px}.filter-count{font-size:11px}.date-filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;margin-top:10px}.date-chip{font-size:13px;padding:8px 4px;min-width:0}.compact-label{display:inline}.wide-label{display:none}.search-row{margin-top:10px}.search-box input{font-size:16px}.search-box input::-webkit-search-cancel-button{-webkit-appearance:none}
-  .results-header{gap:10px}.results-header>div{min-width:0}.results-header h3{font-size:17px}.results-header p{font-size:13px;overflow-wrap:anywhere}.results-header .text-button{font-size:12px;max-width:84px;white-space:normal}.other-pending{font-size:13px;flex-wrap:wrap;gap:2px 10px;padding:10px 12px}
-  .day-summary{display:grid;grid-template-columns:44px minmax(0,1fr) 18px;grid-template-areas:"date title arrow";gap:7px 11px;padding:14px;min-height:94px}.date-tile{grid-area:date;width:44px;min-width:44px}.day-title{grid-area:title}.day-summary .chevron{grid-area:arrow;width:18px;height:18px}.date-heading{font-size:15px;line-height:1.4;overflow-wrap:anywhere}.date-tile .day-number{font-size:22px}.date-tile .day-month{font-size:10px}
-  .work-list{padding:0 15px}.work-item{padding:18px 0}.work-title{font-size:16px;line-height:1.5;margin-top:10px}.work-status,.subject{font-size:12px}.work-status{white-space:nowrap;flex-shrink:0;overflow-wrap:normal}.work-status .icon{width:15px;height:15px}.work-top{gap:7px 10px}.work-meta{font-size:13px;line-height:1.6;margin-top:6px}.evidence a{font-size:13px;min-height:46px;padding:10px 12px}.more-works{font-size:13px;padding:12px}
+  .period-wrap{min-width:0;max-width:46%;flex-shrink:1}.period-wrap label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}.period-wrap select{width:100%;min-width:0;padding:9px 24px 9px 10px;font-size:16px}
+  .metric{padding:10px;border-radius:13px}.metric-top{font-size:12px;overflow-wrap:anywhere}.metric-top>.icon{display:none}.metric-number{font-size:27px;margin-top:3px}.metric-sub{font-size:12px;line-height:1.45}.progress-track{margin-top:7px}
+  .board{grid-template-columns:minmax(0,1fr);gap:18px}
+  .summary .metric{padding:8px}
+  .summary .metric-top{font-size:.75rem}
+  .summary .metric-number{font-size:1.375rem}
+  .calendar-toggle{padding:8px;gap:5px;font-size:.875rem}
+  .calendar-card{padding:12px}.calendar-day{min-height:44px;font-size:14px}.calendar-mark{font-size:10px}.weekdays span{font-size:12px}.calendar-caption{font-size:13px}.calendar-key,.calendar-scope{font-size:12px}.month-select{font-size:16px}
+  .status-filters{padding:3px;gap:3px}
+  .filter-button{font-size:13px;gap:4px;padding:6px 3px;min-height:44px}
+  .search-box input::-webkit-search-cancel-button{-webkit-appearance:none}
+  .other-pending{font-size:13px;flex-wrap:wrap;gap:2px 10px;padding:9px 11px}
+  .day-summary{grid-template-columns:40px minmax(0,1fr) 18px;gap:9px;padding:10px 11px}
+  .date-heading{font-size:.9375rem;line-height:1.35}
+  .work-item{padding:11px 12px 9px}
+  .evidence a{flex:1 1 100%;justify-content:flex-start}
   .pagination{justify-content:center;flex-direction:column}.pagination .btn{width:100%;min-height:48px}.attendance-grid{grid-template-columns:1fr;gap:10px}.attendance-grid .metric{padding:20px}.attendance-grid .metric-top{font-size:14px}.attendance-grid .metric-sub{font-size:13px}.attendance-grid .metric-number{font-size:32px}.attendance-history{padding:18px}.attendance-row{font-size:14px}.attendance-status{font-size:12px}.attendance-note{font-size:13px}.help-card summary,.help-card p{font-size:13px}.footer{font-size:11px;line-height:1.7}
 }
-@media(max-width:360px){.page{padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px))}.header-inner{gap:8px}.brand{gap:8px}.header-right{gap:0}#themeBtn>span{display:none}#themeBtn{min-width:44px}.profile{grid-template-columns:34px minmax(0,1fr) auto;gap:8px;padding:12px}.avatar{width:34px;height:38px;font-size:13px}.student-info h1{font-size:16px}.page-tabs{gap:10px}.page-tab{font-size:13px}.page-heading h2{font-size:21px}.metric{padding:10px 8px}.metric-number{font-size:27px}.day-summary{gap:7px 9px;padding:12px}.calendar-card{padding:12px}.login-card{padding:20px}}
+@media(max-width:360px){html{--page-gutter-left:max(12px,env(safe-area-inset-left,0px));--page-gutter-right:max(12px,env(safe-area-inset-right,0px))}.header-inner{gap:8px}.brand{gap:8px}.header-right{gap:0}#themeBtn>span{display:none}#themeBtn{min-width:44px}.profile{grid-template-columns:34px minmax(0,1fr) auto;gap:8px;padding:10px}.avatar{width:34px;height:38px;font-size:13px}.student-info h1{font-size:16px}.page-tabs{gap:4px}.page-tab{font-size:13px;padding-inline:6px}.page-heading h2{font-size:21px}.period-wrap select{padding-right:8px}.results-header{gap:6px}.results-header h3{font-size:1rem}.calendar-toggle{padding-inline:7px;gap:4px;font-size:.8125rem}.calendar-toggle .icon{width:14px;height:14px}.metric{padding:10px 8px}.metric-number{font-size:27px}.day-summary{gap:7px;padding:9px}.calendar-card{padding:12px}.login-card{padding:20px}}
+@media(min-width:60rem){
+  .header-inner,.page{max-width:90rem}
+  .page{padding:22px clamp(24px,3vw,42px) 40px}
+  .profile{padding:15px 20px}
+  .page-tabs{margin:14px 0 18px}
+  .page-heading{margin-bottom:14px}
+  .page-heading h2{font-size:1.75rem;margin-bottom:0}
+
+  .board{
+    --sidebar-width:clamp(17.75rem,24vw,21rem);
+    grid-template-columns:minmax(0,1fr) var(--sidebar-width);
+    grid-template-areas:"overview overview" "filters tools" "results tools";
+    grid-template-rows:auto max-content 1fr;
+    column-gap:22px;row-gap:0;
+  }
+  .board:has(.calendar-panel:not([hidden])){
+    grid-template-areas:"overview overview" "filters calendar" "results calendar" "results tools";
+    grid-template-rows:auto max-content auto 1fr;
+  }
+  .agenda{display:contents}
+  .summary{grid-area:overview;margin-bottom:16px}
+  .summary .metric{padding:11px 16px}
+  .summary .metric-top{font-size:.875rem}
+  .summary .metric-number{font-size:1.65rem;font-variant-numeric:tabular-nums}
+  .summary .metric-total{font-size:.875rem}
+  .summary .progress-track{max-width:15rem}
+
+  .work-filters{
+    grid-area:filters;display:grid;align-items:start;
+    grid-template-columns:minmax(0,1fr) minmax(18.5rem,1fr);gap:10px;
+  }
+  .work-filters .search-box{margin:0}
+  .work-filters .search-box:has(~.status-filters[hidden]){grid-column:1/-1}
+  .work-filters .search-box input{min-height:54px}
+  .work-filters .search-box>.icon{top:18px}
+  .work-filters .search-clear{top:5px}
+  .work-filters .status-filters{padding:4px}
+  .work-filters .filter-button{font-size:.875rem;padding-inline:4px}
+  .work-filters .results-header{grid-column:1/-1;margin:0 0 12px}
+  .work-filters .results-header h3{font-size:1.125rem}
+  .work-filters .results-header p{font-size:.875rem}
+
+  .calendar-panel{grid-area:calendar;max-width:none;margin:0 0 10px}
+  .calendar-panel .calendar-card{padding:13px}
+  .calendar-panel .calendar-heading{font-size:.9375rem}
+  .calendar-panel .calendar-caption{font-size:.8125rem}
+  .calendar-panel .date-chip{font-size:.8125rem;padding-inline:8px}
+  .calendar-panel .calendar-day{min-height:44px}
+  .calendar-panel .calendar-key,.calendar-panel .calendar-scope{font-size:.75rem}
+  .work-tools{grid-area:tools}
+  .work-results{grid-area:results;container-type:inline-size}
+  .work-results .work-item{display:flex;flex-direction:column;min-width:0;padding:14px 16px}
+  .work-results .work-list{gap:12px;padding-top:12px}
+  .work-results .work-top{min-height:31px}
+  .work-results .evidence{margin-top:auto;padding-top:10px}
+  @container(min-width:35rem){
+    .work-results .work-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+
+  #attendance-panel{
+    display:grid;align-items:start;column-gap:22px;row-gap:12px;
+    grid-template-columns:minmax(0,1fr) clamp(17.75rem,24vw,21rem);
+    grid-template-areas:"heading heading" "stats stats" "history notice" "history context";
+    grid-template-rows:auto auto max-content 1fr;
+  }
+  #attendance-panel>.page-heading{grid-area:heading;margin:0}
+  #attendance-panel .attendance-grid{grid-area:stats;margin:0 0 4px}
+  #attendance-panel .attendance-history{grid-area:history;max-width:none;margin:0;min-width:0}
+  #attendance-panel .family-note{grid-area:notice;margin:0}
+  #attendance-panel .attendance-note{grid-area:context;margin:0}
+}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -250,17 +384,17 @@ button.metric{text-align:left;color:var(--ink);font:inherit;cursor:pointer}
 <a class="skip" href="#main">Ir al contenido</a>
 <header class="header"><div class="header-inner">
   <div class="brand"><div class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg></div><div><div class="brand-name">Aula Digital</div><div class="brand-description">Un espacio para las familias</div></div></div>
-  <div class="header-right"><span class="header-tag">Grupo 6to B</span><button class="btn subtle compact" id="themeBtn" type="button" aria-label="Activar tema oscuro"><svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg><span>Oscuro</span></button></div>
+  <div class="header-right"><span class="header-tag">Grupo 6.º B</span><button class="btn subtle compact" id="themeBtn" type="button" aria-label="Activar tema oscuro"><svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg><span>Oscuro</span></button></div>
 </div></header>
 <main class="page" id="main">
   <section id="search-card" class="login" aria-labelledby="welcome-title">
-    <div class="login-copy"><div class="eyebrow">Cerca de su aprendizaje</div><h1 id="welcome-title">Su día en la escuela,<br><span>más claro.</span></h1><p>Los trabajos, las entregas y la asistencia de su hijo(a), en un solo lugar y a su ritmo.</p>
+    <div class="login-copy"><h1 id="welcome-title">Libreta digital<br><span>de 6.º B</span></h1><p>Consulte los trabajos, las entregas y la asistencia de su hijo(a).</p>
       <div class="login-benefits"><div class="benefit"><span class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span>Trabajos organizados por día</div><div class="benefit"><span class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>Identifique fácilmente qué falta entregar</div><div class="benefit"><span class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg></span>Consulte las evidencias disponibles</div></div>
     </div>
-    <div class="panel login-card"><div class="eyebrow">Consulta para familias</div><h2>Comencemos</h2><p class="small muted">Escriba el ID que le compartió el maestro.</p>
-      <form id="search-form" novalidate><label class="field-label" for="idInput">ID escolar</label><input id="idInput" class="field" placeholder="Escriba o pegue el ID" autocomplete="off" autocapitalize="characters" spellcheck="false" inputmode="text" enterkeyhint="go" aria-describedby="id-help search-status"><p id="id-help" class="small muted" style="margin-top:8px">Lo encontrará en el mensaje de la escuela.</p><label class="check-label"><input id="rememberCheck" type="checkbox">Recordar ID en este dispositivo</label><button class="btn primary" id="goBtn" type="submit"><span>Ver el progreso</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button></form>
+    <div class="panel login-card"><div class="eyebrow">Consulta para familias</div><h2>Consultar la libreta</h2><p class="small muted">Use el ID que le envió el Mtro. Emilio.</p>
+      <form id="search-form" novalidate><label class="field-label" for="idInput">ID escolar</label><input id="idInput" class="field" placeholder="Escriba o pegue el ID" autocomplete="off" autocapitalize="characters" spellcheck="false" inputmode="text" enterkeyhint="go" aria-describedby="id-help search-status"><p id="id-help" class="small muted" style="margin-top:8px">Pegue el ID escolar sin espacios.</p><label class="check-label"><input id="rememberCheck" type="checkbox">Recordar ID en este dispositivo</label><button class="btn primary" id="goBtn" type="submit"><span>Buscar alumno</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button></form>
       <div id="search-status" class="feedback" role="status" aria-live="polite"></div><button id="forgetBtn" class="text-button" type="button" hidden>Olvidar el ID guardado</button>
-      <p class="login-foot">La información la registra el maestro.<br>Si necesita su ID escolar, solicítelo a la escuela.</p>
+      <p class="login-foot">La libreta es de solo lectura.<br>Si necesita su ID, solicítelo al Mtro. Emilio.</p>
     </div>
   </section>
 
@@ -269,42 +403,64 @@ button.metric{text-align:left;color:var(--ink);font:inherit;cursor:pointer}
     <div id="view-status" class="feedback" role="status" aria-live="polite"></div>
     <nav class="page-tabs" aria-label="Secciones de la consulta"><button id="worksTab" class="page-tab active" type="button" aria-pressed="true" aria-controls="works-panel"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg>Trabajos <span class="tab-count" id="nav-pending">0</span></button><button id="attendanceTab" class="page-tab" type="button" aria-pressed="false" aria-controls="attendance-panel"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Asistencia</button><button class="btn nav-refresh" id="refreshBtn" type="button" aria-label="Actualizar datos" title="Actualizar datos"><svg class="icon refresh-icon" aria-hidden="true"><use href="#i-refresh"/></svg><span>Actualizar</span></button></nav>
 
-    <aside class="family-note" id="attendance-guidance" aria-labelledby="attendance-guidance-title"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><p><strong id="attendance-guidance-title">Asistencia y justificaciones</strong>Si la inasistencia ya fue justificada con el maestro, esa justificación se mantiene aunque la página muestre «No asistió». Este registro solo indica que su hijo(a) no estuvo presente ese día.</p></aside>
-
     <section id="works-panel" aria-labelledby="works-title">
-      <div class="page-heading"><div><h2 id="works-title" tabindex="-1">Trabajos por día</h2><p>Empiece por los pendientes. Abra una fecha para ver sus trabajos.</p></div><div class="period-wrap"><label for="triSelect">Periodo escolar</label><select id="triSelect"><option value="M1">Trimestre 1</option><option value="M2">Trimestre 2</option><option value="M3">Trimestre 3</option><option value="ALL">Todos los trimestres</option></select></div></div>
-      <p class="summary-scope" id="summary-scope"></p>
-      <div class="summary"><button class="metric attention" id="pendingShortcut" type="button" title="Ver todos los pendientes del periodo"><span class="metric-top">Pendientes<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span><span class="metric-number" id="stat-pending">0</span><span class="metric-sub">Ver pendientes</span></button><div class="metric"><div class="metric-top">Entregados<svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></div><span class="metric-number" id="stat-delivered">0</span><span class="metric-sub" id="stat-total">de 0 trabajos</span></div><div class="metric"><div class="metric-top">Avance<svg class="icon" aria-hidden="true"><use href="#i-list"/></svg></div><span class="metric-number" id="stat-cump-tri">–</span><div class="progress-track" aria-hidden="true"><div class="progress-fill" id="completion-fill"></div></div><span class="metric-sub">Del total de trabajos</span></div></div>
-      <div class="publish-note"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><p id="publication-notice"></p></div>
-
-      <div class="board" id="work-board">
-        <div class="filters">
-          <div class="status-filters" role="group" aria-label="Mostrar trabajos por estado"><button type="button" class="filter-button active" data-status="pending" aria-pressed="true">Pendientes <span class="filter-count" id="filter-pending">0</span></button><button type="button" class="filter-button" data-status="delivered" aria-pressed="false">Entregados <span class="filter-count" id="filter-delivered">0</span></button><button type="button" class="filter-button" data-status="all" aria-pressed="false">Todos <span class="filter-count" id="filter-all">0</span></button></div>
-          <div class="search-row"><div class="search-box"><label class="sr-only" for="workSearch">Buscar por nombre, materia o página</label><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><input class="field" id="workSearch" type="search" placeholder="Buscar un trabajo…" autocomplete="off" enterkeyhint="search" spellcheck="false"><button class="search-clear" id="clearSearch" type="button" aria-label="Borrar búsqueda" hidden><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div></div>
-          <div class="date-filters" role="group" aria-label="Filtrar por fecha"><button class="date-chip active" data-range="all" type="button" aria-pressed="true" aria-label="Todas las fechas"><span class="wide-label">Todas las fechas</span><span class="compact-label">Todas</span></button><button class="date-chip" data-range="today" type="button" aria-pressed="false">Hoy</button><button class="date-chip" data-range="week" type="button" aria-pressed="false" aria-label="Esta semana"><span class="wide-label">Esta semana</span><span class="compact-label">Semana</span></button><button class="btn calendar-toggle" id="calendarToggle" type="button" aria-label="Elegir una fecha en el calendario" aria-expanded="false" aria-controls="calendar-panel"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span id="calendarToggleLabel">Fecha</span></button></div>
-        </div>
-        <aside class="calendar-panel" id="calendar-panel" aria-label="Elegir un día">
-          <div class="calendar-card"><div class="calendar-title-row"><h3 class="calendar-heading"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Encuentre un día</h3><button class="btn icon-only calendar-close" id="calendarClose" type="button" aria-label="Cerrar calendario"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div><p class="calendar-caption">Toque una fecha para consultar sus trabajos.</p><div class="month-navigation"><button id="prevMonth" class="btn icon-only" type="button" aria-label="Mes anterior" title="Mes anterior"><svg class="icon" aria-hidden="true"><use href="#i-left"/></svg></button><select id="monthSelect" class="month-select" aria-label="Mes del calendario"></select><button id="nextMonth" class="btn icon-only" type="button" aria-label="Mes siguiente" title="Mes siguiente"><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></button></div><div class="weekdays" aria-hidden="true"><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span></div><div class="calendar-days" id="calendar-days" role="group" aria-label="Días del mes"></div><div class="calendar-key"><span><b class="key-symbol">2 p.</b> Pendientes</span><span><b class="key-symbol done">✓</b> Todo entregado</span></div><p class="calendar-scope" id="calendar-scope"></p></div>
-          <details class="help-card"><summary><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>¿Qué significa cada estado?</summary><p><strong>Pendiente:</strong> aún no está registrado como entregado.<br><strong>Entregado a tiempo:</strong> se registró dentro de la fecha.<br><strong>Entregado fuera de fecha:</strong> ya cuenta como entregado.</p><p>Si un trabajo ya se entregó y sigue pendiente, consulte al maestro.</p><p>Los trabajos pendientes aún no tienen una entrega registrada; consulte al maestro cómo recuperarlos en caso de inasistencia.</p><p><strong>Asistencia:</strong> corresponde a la fecha del bloque. <strong>Sin registro</strong> indica que aún no hay un dato de asistencia disponible para esa fecha.</p></details>
-        </aside>
-        <div class="agenda">
-          <div class="results-header"><div><h3 id="results-title" tabindex="-1">Pendientes por fecha</h3><p id="results-description"></p></div><button class="text-button" id="resetFilters" type="button" hidden>Quitar filtros</button></div>
-          <div id="other-pending" class="other-pending" hidden><span id="other-pending-text"></span><button id="allPendingBtn" class="text-button" type="button">Ver todos</button></div>
-          <div id="day-groups" class="day-groups"></div>
-          <div class="pagination" id="pagination" hidden><p id="page-description"></p><button class="btn" id="loadMoreDays" type="button">Ver más fechas<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button></div>
-          <p class="sr-only" role="status" aria-live="polite" id="results-announcement"></p>
-        </div>
+      <div class="page-heading">
+        <div><h2 id="works-title" tabindex="-1">Trabajos por día</h2></div>
+        <div class="period-wrap"><label for="triSelect">Periodo escolar</label><select id="triSelect"><option value="M1" selected>Trimestre 1</option><option value="M2">Trimestre 2</option><option value="M3">Trimestre 3</option><option value="ALL">Todos los trimestres</option></select></div>
       </div>
-      <details class="help-card section-gap" id="mobile-help"><summary><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Un trabajo ya se entregó, ¿por qué sigue pendiente?</summary><p>Puede estar pendiente de registro. Consulte al maestro para revisar el dato. Aquí se muestra la información de la libreta digital.</p><p>Los trabajos pendientes aún no tienen una entrega registrada; consulte al maestro cómo recuperarlos en caso de inasistencia.</p><p><strong>Asistencia:</strong> corresponde a la fecha del bloque. <strong>Sin registro</strong> indica que aún no hay un dato de asistencia disponible para esa fecha.</p></details>
+      <div class="board" id="work-board">
+        <div class="agenda">
+          <div class="summary" id="work-summary" role="group" aria-label="Resumen del periodo escolar">
+            <button class="metric attention" id="pendingShortcut" type="button">
+              <span class="metric-top">Pendientes</span><span class="metric-number" id="stat-pending">0</span>
+            </button>
+            <div class="metric metric-delivered">
+              <span class="metric-top">Entregados</span>
+              <div class="metric-value"><span class="metric-number" id="stat-delivered">0</span> <span class="metric-total" id="stat-total">de 0</span> <span class="sr-only">trabajos</span></div>
+            </div>
+            <div class="metric">
+              <span class="metric-top">Avance</span><span class="metric-number" id="stat-cump-tri">–</span>
+              <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="completion-fill"></div></div>
+            </div>
+          </div>
+          <div class="work-filters">
+            <div class="search-box"><label class="sr-only" for="workSearch">Buscar por número de trabajo, tema, materia o página</label><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><input class="field" id="workSearch" type="search" placeholder="Buscar por número o tema" autocomplete="off" enterkeyhint="search" spellcheck="false"><button class="search-clear" id="clearSearch" type="button" aria-label="Borrar búsqueda" hidden><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+            <div class="status-filters" id="status-filters" role="group" aria-label="Mostrar trabajos por estado"><button type="button" class="filter-button active" data-status="pending" aria-pressed="true">Pendientes <span class="filter-count" id="filter-pending">0</span></button><button type="button" class="filter-button" data-status="delivered" aria-pressed="false">Entregados <span class="filter-count" id="filter-delivered">0</span></button><button type="button" class="filter-button" data-status="all" aria-pressed="false">Todos <span class="filter-count" id="filter-all">0</span></button></div>
+            <div class="results-header">
+              <div><h3 id="results-title" tabindex="-1">Pendientes por fecha</h3><p id="results-description"></p></div>
+              <button class="btn calendar-toggle" id="calendarToggle" type="button" aria-label="Elegir fecha" aria-expanded="false" aria-controls="calendar-panel"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span id="calendarToggleLabel">Elegir fecha</span></button>
+            </div>
+          </div>
+          <div class="calendar-panel" id="calendar-panel" aria-label="Elegir un día" hidden>
+            <div class="calendar-card"><div class="calendar-title-row"><h3 class="calendar-heading"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Calendario de trabajos</h3><button class="btn icon-only calendar-close" id="calendarClose" type="button" aria-label="Cerrar calendario"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div><p class="calendar-caption">Toque una fecha para consultar sus trabajos.</p>
+              <div class="date-filters" role="group" aria-label="Filtrar por fecha"><button class="date-chip active" data-range="all" type="button" aria-pressed="true" aria-label="Todas las fechas">Todas las fechas</button><button class="date-chip" data-range="today" type="button" aria-pressed="false">Hoy</button><button class="date-chip" data-range="week" type="button" aria-pressed="false" aria-label="Esta semana">Esta semana</button></div>
+              <div class="month-navigation"><button id="prevMonth" class="btn icon-only" type="button" aria-label="Mes anterior" title="Mes anterior"><svg class="icon" aria-hidden="true"><use href="#i-left"/></svg></button><select id="monthSelect" class="month-select" aria-label="Mes del calendario"></select><button id="nextMonth" class="btn icon-only" type="button" aria-label="Mes siguiente" title="Mes siguiente"><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></button></div><div class="weekdays" aria-hidden="true"><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span></div><div class="calendar-days" id="calendar-days" role="group" aria-label="Días del mes"></div><div class="calendar-key"><span><b class="key-symbol">2 p.</b> Pendientes</span><span><b class="key-symbol done">✓</b> Todo entregado</span></div><p class="calendar-scope" id="calendar-scope"></p></div>
+          </div>
+          <div class="work-results">
+            <div id="other-pending" class="other-pending" hidden><span id="other-pending-text"></span><button id="allPendingBtn" class="text-button" type="button">Ver todos los pendientes</button></div>
+            <div id="day-groups" class="day-groups"></div>
+            <div class="pagination" id="pagination" hidden><p id="page-description"></p><button class="btn" id="loadMoreDays" type="button">Ver más fechas<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button></div>
+            <p class="sr-only" role="status" aria-live="polite" id="results-announcement"></p>
+          </div>
+        </div>
+        <aside class="work-tools" aria-label="Horario y ayuda">
+          <details class="help-card">
+            <summary><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Horario de publicación<svg class="icon chevron" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <p id="publication-notice"></p>
+          </details>
+          <details class="help-card"><summary><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Ayuda sobre trabajos y asistencia<svg class="icon chevron" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p><strong>Pendiente:</strong> aún no está registrado como entregado.<br><strong>Entregado a tiempo:</strong> se registró dentro de la fecha.<br><strong>Entregado fuera de fecha:</strong> ya cuenta como entregado.</p><p>Si un trabajo ya se entregó y sigue pendiente, consulte al maestro.</p><p>Los trabajos pendientes aún no tienen una entrega registrada; consulte al maestro cómo recuperarlos en caso de inasistencia.</p><p><strong>Asistencia:</strong> corresponde a la fecha del bloque. <strong>Sin registro</strong> indica que aún no hay un dato de asistencia disponible para esa fecha. Si ya justificó una inasistencia con el maestro, la justificación se mantiene.</p></details>
+        </aside>
+      </div>
     </section>
 
     <section id="attendance-panel" aria-labelledby="attendance-title" hidden>
       <div class="page-heading"><div><h2 id="attendance-title" tabindex="-1">Cada día cuenta.</h2><p>Consulte los días de asistencia registrados por el maestro.</p></div></div>
+      <aside class="family-note" id="attendance-guidance" aria-labelledby="attendance-guidance-title"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><p><strong id="attendance-guidance-title">Asistencia y justificaciones</strong>Si la inasistencia ya fue justificada con el maestro, esa justificación se mantiene aunque la página muestre «No asistió». Este registro solo indica que su hijo(a) no estuvo presente ese día.</p></aside>
       <div class="attendance-grid"><div class="metric"><div class="metric-top">Esta semana</div><div class="metric-number" id="stat-aswk">–</div><span class="metric-sub" id="aswk-detail"></span></div><div class="metric"><div class="metric-top">Últimos 30 días</div><div class="metric-number" id="stat-as30">–</div><span class="metric-sub" id="as30-detail"></span></div><div class="metric"><div class="metric-top">Asistencia acumulada</div><div class="metric-number" id="stat-asHist">–</div><span class="metric-sub" id="asHist-detail"></span><span class="metric-sub" id="stat-faltHist"></span></div></div>
       <div class="panel attendance-history"><h3>Historial completo de asistencia</h3><p id="attendance-history-note">Todos los días con registro de asistencia.</p><div id="attendance-rows"></div></div>
       <div class="attendance-note"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><p>La asistencia se consulta por estos periodos y es independiente del trimestre de trabajos.</p></div>
     </section>
-    <footer class="footer"><span>Aula Digital · Consulta para familias</span><span>¿Algún dato no coincide? Consulte al maestro.</span></footer>
+    <footer class="footer"><span>Aula Digital · Consulta para familias</span><span>¿Algún dato no coincide? Consulte al Mtro. Emilio.</span></footer>
   </section>
   <noscript><p class="panel" style="padding:24px">Active JavaScript en su navegador para consultar los trabajos y la asistencia.</p></noscript>
 </main>
@@ -312,10 +468,10 @@ button.metric{text-align:left;color:var(--ink);font:inherit;cursor:pointer}
 
 'use strict';
 
-/* CONFIGURACIÓN — Maestro Emilio, 6to B. Hoja, GIDs y evidencias del archivo original. */
+/* CONFIGURACIÓN — Maestro Emilio, 6.º B. Hoja, GIDs y evidencias del archivo original. */
 const SHEET_ID = "1ypJ0sj-zZT16iv0LsvGbhRN3T9c3eLCMjFA_5JuNqr8";
 const GIDS = {"puntos":"0","asistencia":"1980470464","registro":"438181806","aliases":"1058620849","presets":"1710402775"};
-const GROUP_LABEL = "6to B";
+const GROUP_LABEL = "6.º B";
 const LINKS_JSON = "data/links_3A.json";
 
 /* Cada trabajo se publica EN SU FECHA OBJETIVO, desde las 12:45 p. m.
@@ -659,7 +815,8 @@ function weekRange(date){
    La clasificación por UID y el corte de publicación se conservan en el núcleo. */
 
 let ALL={faltantes:[],tarde:[],atiempo:[],presets:[]};
-let TRI='M1';
+const DEFAULT_TRI='M1';
+let TRI=DEFAULT_TRI;
 let CURRENT=null;
 let loadGeneration=0;
 let busy=false;
@@ -744,13 +901,41 @@ function matchesStatus(e){
   return UI.status==='all' || (UI.status==='pending' ? e.status==='pending' : e.status!=='pending');
 }
 
+// El número de la columna tiene prioridad. Algunos trabajos antiguos solo lo llevan en el título.
+const NUMBERED_WORK_TITLE=/^trabajo\s*(?:#\s*|n[.º°]+\s*)?(\d+[a-z]?)(?=\s|[:)·–—]|[.-](?!\d)|$)/i;
+
+function workNumber(value){
+  return String(value ?? '').trim()
+    .replace(/^trabajo(?=\s|#|:|$)[\s:]*/i,'')
+    .replace(/^(?:#|n[.º°]+)\s*/i,'')
+    .replace(/^0+(?=\d+[a-z]?$)/i,'');
+}
+
+function workDisplay(t){
+  const original=String(t.nombreTrabajo ?? '').trim();
+  const prefix=original.match(NUMBERED_WORK_TITLE);
+  const titleNumber=workNumber(prefix?.[1]);
+  const number=workNumber(t.numero)||titleNumber;
+  const title=prefix && norm(titleNumber)===norm(number)
+    ? original.slice(prefix[0].length).replace(/^[\s.:)·–—-]+/,'')
+    : original;
+  return {number,title};
+}
+
 function filteredEntries(){
   const query=norm(UI.query);
+  const numberMatch=query.match(NUMBERED_WORK_TITLE);
+  const directNumber=query.match(/^(?:#\s*)?(\d+[a-z]?)$/i);
+  const numberQuery=workNumber(numberMatch?.[0]===query ? numberMatch[1] : directNumber?.[1]);
   return sourceEntries().filter(e=>{
-    if(!matchesRange(e)||!matchesStatus(e)) return false;
-    if(!query) return true;
+    if(!query) return matchesRange(e)&&matchesStatus(e);
     const t=e.work;
-    if(!searchCache.has(t)) searchCache.set(t,norm([t.nombreTrabajo,t.materia,t.numero,t.origen,t.pagina,t.pagina ? 'página '+t.pagina : '',e.date,shortDate(e.date)].join(' ')));
+    if(numberQuery) return norm(workDisplay(t).number)===numberQuery;
+    if(!searchCache.has(t)){
+      const {number,title}=workDisplay(t);
+      const label=number ? 'Trabajo '+number : '';
+      searchCache.set(t,norm([t.nombreTrabajo,t.materia,t.numero,t.origen,t.pagina,t.pagina ? 'página '+t.pagina : '',e.date,shortDate(e.date),label,title].join(' ')));
+    }
     return searchCache.get(t).includes(query);
   });
 }
@@ -767,7 +952,7 @@ function groupedEntries(entries=filteredEntries()){
     return b.date.localeCompare(a.date);
   }).map(g=>({...g,items:[...g.items].sort((a,b)=>{
     const rank={pending:0,ontime:1,late:2};
-    return rank[a.status]-rank[b.status] || String(a.work.numero||'').localeCompare(String(b.work.numero||''),'es',{numeric:true});
+    return rank[a.status]-rank[b.status] || workDisplay(a.work).number.localeCompare(workDisplay(b.work).number,'es',{numeric:true});
   })}));
 }
 
@@ -780,16 +965,21 @@ function rangeLabel(){
 
 function resetResults(){
   UI.dayLimit=PAGE_DAYS;UI.workLimits.clear();UI.openDays.clear();
-  const first=groupedEntries()[0];
-  if(first) UI.openDays.add(first.key);
+  const groups=groupedEntries().slice(0,UI.query ? PAGE_DAYS : 1);
+  for(const group of groups) UI.openDays.add(group.key);
   renderLists();
 }
 
 function selectPending(){
   UI.status='pending';UI.range='all';UI.date='';UI.query='';
-  $('#workSearch').value='';setSection('works');resetResults();
-  $('#results-title').focus({preventScroll:true});
-  $('#results-title').scrollIntoView({block:'start',behavior:'auto'});
+  $('#workSearch').value='';setSection('works');setCalendarOpen(false);resetResults();
+  focusResults();
+}
+
+function focusResults(){
+  const heading=$('#results-title');
+  heading.focus({preventScroll:true});
+  heading.scrollIntoView({block:'start',behavior:'auto'});
 }
 
 function subjectClass(s){
@@ -813,14 +1003,24 @@ function linksFor(uid,preset){
 }
 
 function renderWork(entry){
-  const t=entry.work,title=t.nombreTrabajo||`${t.materia||'Trabajo'}${t.numero ? ' '+t.numero : ''}`;
-  const meta=[t.origen,t.pagina ? 'Página '+t.pagina : '',t.numero ? 'Trabajo '+t.numero : ''];
-  if(TRI==='ALL') meta.push(TRI_LABELS[String(t.momento||'').trim().toUpperCase()]||t.momento);
+  const t=entry.work,{number,title}=workDisplay(t);
+  const meta=[t.pagina ? 'Página '+t.pagina : ''].filter(Boolean);
+  if(TRI==='ALL'&&t.momento) meta.push(TRI_LABELS[String(t.momento).trim().toUpperCase()]||t.momento);
+  const numberLabel=number ? `<span class="work-number">Trabajo <strong>${escapeHTML(number)}</strong></span>` : '';
+  const status=`<span class="work-status ${entry.status}">${icon(entry.status==='pending' ? 'clock' : 'check')}${STATUS_TEXT[entry.status]}</span>`;
+  const heading=`<h4 class="work-title">${escapeHTML(title)||numberLabel||'Trabajo escolar'}</h4>`;
+  const hasNumberAndTitle=Boolean(number&&title);
   const links=linksFor(t.uid,t);
-  return `<article class="work-item" data-work-uid="${escapeHTML(t.uid)}">
-    <div class="work-top"><span class="subject ${subjectClass(t.materia)}">${escapeHTML(t.materia||'Trabajo escolar')}</span><span class="work-status ${entry.status}">${icon(entry.status==='pending' ? 'clock' : 'check')}${STATUS_TEXT[entry.status]}</span></div>
-    <h4 class="work-title">${escapeHTML(title)}</h4>
-    <div class="work-meta">${meta.filter(Boolean).map(v=>`<span>${escapeHTML(v)}</span>`).join('')}</div>
+  return `<article class="work-item ${subjectClass(t.materia)}" data-work-uid="${escapeHTML(t.uid)}">
+    <div class="work-top">${hasNumberAndTitle ? numberLabel : heading}${status}</div>
+    ${hasNumberAndTitle ? heading : ''}
+    ${t.materia||t.origen||meta.length ? `<div class="work-details">
+      ${t.materia ? `<span class="subject">${escapeHTML(t.materia)}</span>` : ''}
+      ${t.origen||meta.length ? `<div class="work-meta">
+        ${t.origen ? `<span class="work-origin">${escapeHTML(t.origen)}</span>` : ''}
+        ${meta.map(v=>`<span>${escapeHTML(v)}</span>`).join('')}
+      </div>` : ''}
+    </div>` : ''}
     ${links ? `<div class="evidence">${links}</div>` : ''}
     ${t.evidSheet ? `<p class="small muted" style="margin-top:8px">${escapeHTML(t.evidSheet)}</p>` : ''}
   </article>`;
@@ -834,8 +1034,8 @@ function renderDay(group){
   const attendance=asistenciaDelDia(group.date);
   const dailySummary=`<span class="day-overview" title="Todos los trabajos publicados de esta fecha en el periodo seleccionado">
     <span class="day-total">${plural(daily.total,'trabajo','trabajos')}</span>
-    <span class="day-delivered"><span class="day-separator" aria-hidden="true">·</span>${plural(daily.delivered,'entregado','entregados')}</span>
-    <span class="day-pending"><span class="day-separator" aria-hidden="true">·</span>${plural(daily.pending,'pendiente','pendientes')}</span>
+    <span class="day-delivered">${plural(daily.delivered,'entregado','entregados')}</span>
+    <span class="day-pending">${plural(daily.pending,'pendiente','pendientes')}</span>
     <span class="day-attendance ${attendance.state}">${icon('calendar')}<span>Asistencia: <strong>${attendance.label}</strong></span></span>
   </span>`;
   const visible=group.items.slice(0,limit),remaining=group.items.length-visible.length;
@@ -853,14 +1053,13 @@ function emptyState(){
   const source=sourceEntries(),inDates=source.filter(matchesRange),before=publicationCutoff()!==schoolNow().date;
   const askingToday=UI.range==='today'||(UI.range==='date'&&UI.date===schoolNow().date);
   let title='',description='',action='',button='',symbol='search';
-  if(askingToday&&before){
+  if(UI.query){
+    title='No encontramos trabajos con esa búsqueda.';
+    description='Pruebe con el número, el tema, la materia o la página. También puede cambiar el periodo escolar.';
+    action='clearSearch';button='Borrar búsqueda';
+  }else if(askingToday&&before){
     title='Los trabajos de hoy aparecen a las 12:45 p. m.';
     description='El maestro podrá registrar los trabajos durante la mañana. La consulta se actualizará al llegar la hora, en Nuevo Laredo.';symbol='clock';
-  }else if(UI.query){
-    title='No encontramos ese trabajo en esta selección.';
-    description='Pruebe con una palabra del nombre, la materia o el número de página.';
-    const alreadyAll=UI.status==='all'&&UI.range==='all';
-    action=alreadyAll ? 'clearSearch' : 'searchAll';button=alreadyAll ? 'Borrar búsqueda' : 'Buscar en todo el periodo';
   }else if(!source.length){
     title='Aún no hay trabajos publicados en este periodo.';
     description='Puede elegir otro trimestre. Los trabajos se muestran en su fecha, desde las 12:45 p. m.';symbol='book';
@@ -882,36 +1081,44 @@ function emptyState(){
 
 function renderSummary(){
   const c=countsFor(sourceEntries());
-  $('#summary-scope').textContent=`Resumen de ${TRI_LABELS[TRI].toLowerCase()} · trabajos publicados`;
   $('#stat-pending').textContent=c.pending;
   $('#stat-delivered').textContent=c.delivered;
-  $('#stat-total').textContent='de '+plural(c.total,'trabajo','trabajos');
+  $('#stat-total').textContent='de '+c.total;
   $('#stat-cump-tri').textContent=c.total ? Math.round(c.delivered/c.total*100)+'%' : '–';
   $('#completion-fill').style.width=(c.total ? c.delivered/c.total*100 : 0)+'%';
   $('#nav-pending').textContent=c.pending;
   $('#nav-pending').setAttribute('aria-label',plural(c.pending,'pendiente en el periodo','pendientes en el periodo'));
-  $('#filter-pending').textContent=c.pending;$('#filter-delivered').textContent=c.delivered;$('#filter-all').textContent=c.total;
   $('#pendingShortcut').setAttribute('aria-label',`Ver ${plural(c.pending,'trabajo pendiente','trabajos pendientes')} de ${TRI_LABELS[TRI]}`);
 }
 
 function renderLists(){
-  const groups=groupedEntries(),visible=groups.slice(0,UI.dayLimit),entries=filteredEntries();
+  const searching=Boolean(UI.query),entries=filteredEntries();
+  const groups=groupedEntries(entries),visible=groups.slice(0,UI.dayLimit);
+  const source=sourceEntries(),c=countsFor(source.filter(matchesRange));
+  $('#filter-pending').textContent=c.pending;$('#filter-delivered').textContent=c.delivered;$('#filter-all').textContent=c.total;
+  $('#status-filters').hidden=searching;
+  $('#calendarToggle').hidden=searching;
   for(const b of document.querySelectorAll('[data-status]')){
     const active=b.dataset.status===UI.status;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));
   }
   for(const b of document.querySelectorAll('[data-range]')){
     const active=b.dataset.range===UI.range;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));
   }
-  $('#clearSearch').hidden=!UI.query;
+  $('#clearSearch').hidden=!searching;
   const specificDate=UI.range==='date'&&UI.date;
-  $('#calendarToggle').classList.toggle('active',Boolean(specificDate));
-  $('#calendarToggleLabel').textContent=specificDate ? formatDate(UI.date,{day:'numeric',month:'short'}).replace(/\./g,'') : 'Fecha';
-  $('#calendarToggle').setAttribute('aria-label',specificDate ? 'Cambiar fecha: '+prettyDate(UI.date) : 'Elegir una fecha en el calendario');
-  $('#results-title').textContent=UI.range==='all' ? `${STATE_LABELS[UI.status]} por fecha` : STATE_LABELS[UI.status];
-  $('#results-description').textContent=`${rangeLabel()} · ${plural(entries.length,'trabajo','trabajos')}${UI.query ? ` · Búsqueda: “${UI.query}”` : ''}`;
-  $('#resetFilters').hidden=UI.range==='all'&&!UI.query&&UI.status!=='delivered';
-  const outside=sourceEntries().filter(e=>e.status==='pending'&&!matchesRange(e)).length;
-  $('#other-pending').hidden=UI.range==='all'||!outside;
+  const dateFiltered=UI.range!=='all';
+  const dateLabel=specificDate
+    ? formatDate(UI.date,{day:'numeric',month:'short'}).replace(/\./g,'')
+    : ({today:'Hoy',week:'Esta semana'}[UI.range]||'Elegir fecha');
+  $('#calendarToggle').classList.toggle('active',dateFiltered);
+  $('#calendarToggleLabel').textContent=dateLabel;
+  $('#calendarToggle').setAttribute('aria-label',dateFiltered ? `${dateLabel}, cambiar fecha` : dateLabel);
+  const title=searching ? 'Resultados de búsqueda' : UI.range==='all' ? `${STATE_LABELS[UI.status]} por fecha` : STATE_LABELS[UI.status];
+  const scope=searching ? `${TRI_LABELS[TRI]} · Todas las fechas y estados` : rangeLabel();
+  $('#results-title').textContent=title;
+  $('#results-description').textContent=`${scope} · ${plural(entries.length,'trabajo','trabajos')}`;
+  const outside=source.filter(e=>e.status==='pending').length-c.pending;
+  $('#other-pending').hidden=searching||UI.range==='all'||!outside;
   $('#other-pending-text').textContent=`Hay ${plural(outside,'pendiente en otra fecha','pendientes en otras fechas')}.`;
   $('#day-groups').innerHTML=visible.length ? visible.map(renderDay).join('') : emptyState();
   $('#pagination').hidden=groups.length<=PAGE_DAYS;
@@ -923,8 +1130,8 @@ function renderLists(){
       if(d.open) UI.openDays.add(d.dataset.day);else UI.openDays.delete(d.dataset.day);
     });
   }
-  $('#results-announcement').textContent=`${STATE_LABELS[UI.status]}. ${rangeLabel()}. ${plural(entries.length,'trabajo encontrado','trabajos encontrados')}.`;
-  renderCalendar();
+  $('#results-announcement').textContent=`${title}. ${scope}. ${plural(entries.length,'trabajo encontrado','trabajos encontrados')}.`;
+  if(!$('#calendar-panel').hidden) renderCalendar();
 }
 
 function calendarBounds(){
@@ -979,7 +1186,7 @@ function renderPublicationNotice(now=new Date()){
   const before=publicationCutoff(now)!==schoolNow(now).date;
   $('#publication-notice').textContent=before
     ? 'Hoy: desde las 12:45 p. m., hora de Nuevo Laredo. Los días anteriores ya están disponibles.'
-    : 'Publicación diaria: desde las 12:45 p. m., hora de Nuevo Laredo. Se muestra lo registrado por el maestro.';
+    : 'Publicación diaria desde las 12:45 p. m. (Nuevo Laredo).';
 }
 
 function renderAttendance(now=new Date()){
@@ -1012,7 +1219,7 @@ function setStatus(selector,message,error=false){
 function setBusy(value){
   busy=value;
   $('#goBtn').disabled=value;$('#refreshBtn').disabled=value;
-  $('#goBtn').querySelector('span').textContent=value ? 'Consultando…' : 'Ver el progreso';
+  $('#goBtn').querySelector('span').textContent=value ? 'Consultando…' : 'Buscar alumno';
   $('#refreshBtn').querySelector('span').textContent=value ? 'Actualizando…' : 'Actualizar';
   $('#refreshBtn').classList.toggle('loading',value);
   $('#search-form').setAttribute('aria-busy',String(value));
@@ -1035,13 +1242,14 @@ function navigateSection(section){
 }
 
 function setCalendarOpen(open,returnFocus=false){
-  $('#work-board').classList.toggle('calendar-open',open);
+  $('#calendar-panel').hidden=!open;
   $('#calendarToggle').setAttribute('aria-expanded',String(open));
-  if(returnFocus) $('#calendarToggle').focus({preventScroll:true});
+  if(open) renderCalendar();
+  if(returnFocus) $('#calendarToggle').focus();
 }
 
 function resetUI(){
-  TRI='M1';$('#triSelect').value='M1';
+  TRI=DEFAULT_TRI;$('#triSelect').value=DEFAULT_TRI;
   Object.assign(UI,{section:'works',status:'pending',range:'all',date:'',query:'',month:schoolNow().date.slice(0,7),dayLimit:PAGE_DAYS});
   UI.openDays.clear();UI.workLimits.clear();
   $('#workSearch').value='';
@@ -1091,7 +1299,7 @@ async function cargarAlumnoPorID(id,refresh=false){
     setStatus('#search-status','');setStatus('#view-status',refresh ? 'La consulta está actualizada.' : '');
     if(!refresh){
       if($('#rememberCheck').checked){
-        if(!savePreference('familias_id',id)) setStatus('#view-status','Puede consultar sus datos, pero este navegador no permite recordar el ID.');
+        if(!savePreference(REMEMBERED_ID_KEY,id)) setStatus('#view-status','Puede consultar sus datos, pero este navegador no permite recordar el ID.');
         else $('#forgetBtn').hidden=false;
       }
       $('#alumno-nombre').focus({preventScroll:true});window.scrollTo({top:0,behavior:'auto'});
@@ -1135,7 +1343,9 @@ document.addEventListener('visibilitychange',()=>{
   if(document.visibilityState==='visible') checkPublication();
 });
 
-/* PREFERENCIAS Y CONTROLES DE LA INTERFAZ. */
+/* El ID se guarda por grupo porque los portales comparten el mismo dominio. */
+const REMEMBERED_ID_KEY='familias_6toB_id';
+
 function readPreference(key){try{return localStorage.getItem(key);}catch{return null;}}
 function savePreference(key,value){try{localStorage.setItem(key,value);return true;}catch{return false;}}
 
@@ -1165,11 +1375,11 @@ $('#search-form').addEventListener('submit',e=>{
 $('#idInput').addEventListener('input',()=>$('#idInput').removeAttribute('aria-invalid'));
 $('#forgetBtn').onclick=()=>{
   try{
-    localStorage.removeItem('familias_id');$('#idInput').value='';$('#rememberCheck').checked=false;$('#forgetBtn').hidden=true;
+    localStorage.removeItem(REMEMBERED_ID_KEY);$('#idInput').value='';$('#rememberCheck').checked=false;$('#forgetBtn').hidden=true;
     setStatus('#search-status','El ID ya no está guardado en este dispositivo.');
   }catch{setStatus('#search-status','No se pudo quitar el ID guardado. Puede seguir consultando.',true);}
 };
-const saved=readPreference('familias_id');
+const saved=readPreference(REMEMBERED_ID_KEY);
 if(saved){$('#idInput').value=saved;$('#rememberCheck').checked=true;$('#forgetBtn').hidden=false;}
 
 $('#refreshBtn').onclick=()=>{if(CURRENT) void cargarAlumnoPorID(CURRENT.id,true);};
@@ -1190,47 +1400,48 @@ $('#pendingShortcut').onclick=selectPending;
 $('#allPendingBtn').onclick=selectPending;
 $('#triSelect').addEventListener('change',()=>{
   TRI=$('#triSelect').value;
-  UI.range='all';UI.date='';UI.query='';UI.month=schoolNow().date.slice(0,7);
-  $('#workSearch').value='';renderSummary();resetResults();
+  UI.range='all';UI.date='';UI.month=schoolNow().date.slice(0,7);
+  setCalendarOpen(false);renderSummary();resetResults();
 });
 for(const b of document.querySelectorAll('[data-status]')) b.onclick=()=>{UI.status=b.dataset.status;resetResults();};
-for(const b of document.querySelectorAll('[data-range]')) b.onclick=()=>{UI.range=b.dataset.range;UI.date='';resetResults();};
+for(const b of document.querySelectorAll('[data-range]')) b.onclick=()=>{
+  UI.range=b.dataset.range;UI.date='';setCalendarOpen(false);resetResults();focusResults();
+};
 
-$('#workSearch').addEventListener('input',()=>{UI.query=$('#workSearch').value.trim();resetResults();});
-$('#workSearch').addEventListener('keydown',e=>{
-  if(e.key!=='Enter'||e.isComposing) return;
-  e.preventDefault();
-  $('#workSearch').blur();
-  $('#results-title').focus({preventScroll:true});
-  $('#results-title').scrollIntoView({block:'start',behavior:'auto'});
+function clearWorkSearch(){
+  UI.query='';$('#workSearch').value='';resetResults();$('#workSearch').focus();
+}
+
+$('#workSearch').addEventListener('input',()=>{
+  UI.query=$('#workSearch').value.trim();
+  if(UI.query) setCalendarOpen(false);
+  resetResults();
 });
-$('#clearSearch').onclick=()=>{UI.query='';$('#workSearch').value='';resetResults();$('#workSearch').focus();};
-$('#resetFilters').onclick=()=>{
-  UI.status='all';UI.range='all';UI.date='';UI.query='';$('#workSearch').value='';resetResults();
-};
-$('#calendarToggle').onclick=()=>{
-  setCalendarOpen(!$('#work-board').classList.contains('calendar-open'));
-};
+$('#workSearch').addEventListener('keydown',e=>{
+  if(e.isComposing) return;
+  if(e.key==='Escape'&&UI.query){e.preventDefault();clearWorkSearch();}
+  if(e.key==='Enter'){e.preventDefault();focusResults();}
+});
+$('#clearSearch').onclick=clearWorkSearch;
+$('#calendarToggle').onclick=()=>setCalendarOpen($('#calendar-panel').hidden);
 $('#calendarClose').onclick=()=>setCalendarOpen(false,true);
 $('#calendar-panel').addEventListener('keydown',e=>{
-  if(e.key==='Escape'&&window.matchMedia('(max-width:760px)').matches){
-    e.preventDefault();setCalendarOpen(false,true);
-  }
+  if(e.key==='Escape'){e.preventDefault();setCalendarOpen(false,true);}
 });
 
 $('#monthSelect').addEventListener('change',()=>{UI.month=$('#monthSelect').value;renderCalendar();});
-$('#prevMonth').onclick=()=>{UI.month=addMonth(UI.month,-1);renderCalendar();};
-$('#nextMonth').onclick=()=>{UI.month=addMonth(UI.month,1);renderCalendar();};
+for(const [id,offset] of [['#prevMonth',-1],['#nextMonth',1]]){
+  $(id).onclick=e=>{
+    UI.month=addMonth(UI.month,offset);
+    renderCalendar();
+    if(e.currentTarget.disabled) $('#monthSelect').focus();
+  };
+}
 $('#calendar-days').addEventListener('click',e=>{
   const button=e.target.closest('[data-calendar-date]');
   if(!button||button.disabled) return;
   UI.range='date';UI.date=button.dataset.calendarDate;
-  resetResults();
-  $('#results-title').focus({preventScroll:true});
-  if(window.matchMedia('(max-width:760px)').matches){
-    setCalendarOpen(false);
-    $('#results-title').scrollIntoView({block:'start',behavior:'auto'});
-  }
+  setCalendarOpen(false);resetResults();focusResults();
 });
 $('#calendar-days').addEventListener('keydown',e=>{
   const button=e.target.closest('[data-calendar-date]');
@@ -1245,8 +1456,10 @@ $('#calendar-days').addEventListener('keydown',e=>{
 });
 
 $('#loadMoreDays').onclick=()=>{
-  const next=groupedEntries()[UI.dayLimit];UI.dayLimit+=PAGE_DAYS;renderLists();
-  if(next) $('#day-groups').querySelector(`[data-day="${next.key}"] summary`)?.focus({preventScroll:true});
+  const next=groupedEntries().slice(UI.dayLimit,UI.dayLimit+PAGE_DAYS);
+  if(UI.query) for(const group of next) UI.openDays.add(group.key);
+  UI.dayLimit+=PAGE_DAYS;renderLists();
+  if(next.length) $('#day-groups').querySelector(`[data-day="${next[0].key}"] summary`)?.focus();
 };
 $('#day-groups').addEventListener('click',e=>{
   const button=e.target.closest('button');if(!button) return;
@@ -1258,14 +1471,14 @@ $('#day-groups').addEventListener('click',e=>{
   }
   const action=button.dataset.emptyAction;
   if(!action) return;
-  if(action==='clearSearch'){UI.query='';$('#workSearch').value='';}
-  if(action==='searchAll'){UI.status='all';UI.range='all';UI.date='';}
+  if(action==='clearSearch'){clearWorkSearch();return;}
   if(action==='allDates'){UI.range='all';UI.date='';}
   if(action==='delivered') UI.status='delivered';
   if(action==='allStatus') UI.status='all';
-  resetResults();
+  resetResults();focusResults();
 });
 
 </script>
 </body>
 </html>
+
